@@ -1,16 +1,11 @@
 const express = require("express");
+const config = require("./config/app");
+const router = require("./router");
+
 require("dotenv").config();
 
 const app = express();
-const config = require("./config/app");
-
-app.get("/home", (req, res) => {
-  res.send("Hello World");
-});
-
-app.get("/login", (res, req) => {
-  res.send("Hello from login page");
-});
+app.use(router);
 
 const PORT = config.appPort;
 
