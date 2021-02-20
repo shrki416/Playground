@@ -1,11 +1,11 @@
 const router = require("express").Router();
 
-router.get("/register", (req, res) => {
-  res.send("Hello from register page");
+router.post("/login", (req, res) => {
+  return res.send(["login", req.body]);
 });
 
-router.get("/login", (req, res) => {
-  res.send("Hello from login page");
+router.post("/register", (req, res) => {
+  return res.send("Hello from register page");
 });
 
 module.exports = router;
