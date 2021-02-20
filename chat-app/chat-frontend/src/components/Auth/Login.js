@@ -1,6 +1,7 @@
 import React from "react";
 import login from "../../assests/images/login.svg";
-// import register from '../../assests/images/register.svg'
+
+import "./Auth.scss";
 
 function Login() {
   return (
