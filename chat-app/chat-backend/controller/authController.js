@@ -2,6 +2,7 @@ const User = require("../models").User;
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const config = require("../config/app");
+const { validatationResult } = require("express-validator");
 
 exports.login = async (req, res) => {
   const { email, password } = req.body;
@@ -29,6 +30,8 @@ exports.login = async (req, res) => {
 };
 
 exports.register = async (req, res) => {
+  const errors = validationResult(req);
+
   try {
     const user = await User.create(req.body);
     const userWithToken = generateToken(user.get({ raw: true }));
