@@ -1,5 +1,6 @@
 import React from "react";
 import login from "../../assests/images/login.svg";
+import { Link } from "react-router-dom";
 
 import "./Auth.scss";
 
@@ -21,7 +22,9 @@ function Login() {
                 <input placeholder="Password" />
               </div>
               <button>LOGIN</button>
-              <p>Don't have an account? Register</p>
+              <p>
+                Don't have an account? <Link to="/register">REGISTER</Link>
+              </p>
             </form>
           </div>
         </div>
