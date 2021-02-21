@@ -1,9 +1,6 @@
 import React, { useState } from "react";
 import loginImg from "../../assests/images/login.svg";
 import { Link } from "react-router-dom";
-// import axios from "axios";
-// import AuthService from "../../services/authService";
-
 import { useDispatch } from "react-redux";
 import { login } from "../../store/actions/auth";
 
@@ -16,16 +13,7 @@ function Login({ history }) {
 
   const submitForm = (e) => {
     e.preventDefault();
-
     dispatch(login({ email, password }, history));
-
-    // AuthService.login({ email, password }).then((res) => console.log(res));
-    // axios
-    //   .post("http://localhost:3000/login", { email, password })
-    //   .then((res) => console.log("res", res))
-    //   .catch((err) => console.log("err", err));
-
-    console.log({ email, password });
     setEmail("");
     setPassword("");
   };
@@ -43,8 +31,9 @@ function Login({ history }) {
               <div className="input-field mb-1">
                 <input
                   placeholder="Email"
-                  value={email}
                   type="email"
+                  value={email}
+                  required="required"
                   onChange={(e) => setEmail(e.target.value)}
                 />
               </div>
@@ -53,6 +42,7 @@ function Login({ history }) {
                   placeholder="Password"
                   type="password"
                   value={password}
+                  required="required"
                   onChange={(e) => setPassword(e.target.value)}
                 />
               </div>
