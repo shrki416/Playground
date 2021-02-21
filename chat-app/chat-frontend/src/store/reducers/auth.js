@@ -6,7 +6,7 @@ const initialState = {
   isLoggedIn: false,
 };
 
-const authReducer = (state, initialState, action) => {
+const authReducer = (state = initialState, action) => {
   const { type, payload } = action;
 
   switch (type) {
