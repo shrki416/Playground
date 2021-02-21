@@ -2,7 +2,7 @@ const User = require("../models").User;
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const config = require("../config/app");
-const { validatationResult } = require("express-validator");
+const { validationResult } = require("express-validator");
 
 exports.login = async (req, res) => {
   const { email, password } = req.body;
@@ -21,12 +21,12 @@ exports.login = async (req, res) => {
 
     // generate auth token
     const userWithToken = generateToken(user.get({ raw: true }));
-    return res.send(userWithToken.token);
+    return res.send(userWithToken);
   } catch (error) {
     return res.status(500).json({ message: error.message });
   }
 
-  return res.send([email, password]);
+  // return res.send([email, password]);
 };
 
 exports.register = async (req, res) => {
