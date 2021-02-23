@@ -1,8 +1,8 @@
 import { LOGIN, REGISTER, LOGOUT } from "../actions/auth";
 
 const initialState = {
-  user: JSON.parse(localStorage.getItem("user")),
-  token: localStorage.getItem("token"),
+  user: JSON.parse(localStorage.getItem("user")) || {},
+  token: localStorage.getItem("token") || "",
   isLoggedIn: !!localStorage.getItem("user"),
 };
 
