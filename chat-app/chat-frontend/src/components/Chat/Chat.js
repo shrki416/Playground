@@ -5,7 +5,6 @@ import Navbar from "./components/Navbar/Navbar";
 function Chat() {
   const user = useSelector((state) => state.authReducer.user);
 
-  console.log(user);
   return (
     <div id="chat-container">
       <Navbar />
