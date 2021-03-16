@@ -2,9 +2,10 @@ const router = require("express").Router();
 const pool = require("../database/db");
 const bcrypt = require("bcrypt");
 const jwtGenerator = require("../utils/jwtGenerator");
+const validInfo = require("../middleware/validate");
 
 //Register Route
-router.post("/register", async (req, res) => {
+router.post("/register", validInfo, async (req, res) => {
   try {
     // 1. destructure req.body (name, email, password)
     // 2. check if user exist (if user exist then throw error)
@@ -46,7 +47,7 @@ router.post("/register", async (req, res) => {
   }
 });
 
-router.post("/login", async (req, res) => {
+router.post("/login", validInfo, async (req, res) => {
   try {
     // 1. destructure the req.body
     // 2. check if user doesn't exist (if user exists throw error)
