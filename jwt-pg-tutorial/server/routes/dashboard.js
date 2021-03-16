@@ -9,7 +9,7 @@ router.get("/", auth, async (req, res) => {
       "SELECT user_name FROM users WHERE user_id = $1",
       [req.user]
     );
-    res.json(users.rows[0]);
+    res.json(user.rows[0]);
   } catch (error) {
     console.error(error.message);
     res.status(500).json("Server Error");
