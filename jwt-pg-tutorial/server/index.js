@@ -10,5 +10,7 @@ app.use(express.json());
 app.use(cors());
 
 // ROUTES
+const authRoutes = require("./routes/jwtAuth");
+app.use("/auth", authRoutes);
 
 app.listen(PORT, () => console.log(`Server is listening on ${PORT}`));
