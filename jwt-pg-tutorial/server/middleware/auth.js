@@ -2,12 +2,20 @@ const jwt = require("jsonwebtoken");
 require("dotenv").config();
 
 module.exports = async (req, res, next) => {
+  // Get token from header
+  const token = req.header("jwt_token");
+
+  // Check if not token
+  if (!token) return res.status(403).json({ message: "authorization denied" });
+
+  // Verify token
   try {
-    const jwtToken = req.header("token");
-    if (!jwtToken) return res.send(403).json("Unathorized User");
-    const payload = jwt.verify(jwtToken, process.env.SECRET);
+    //it is going to give use the user id (user:{id: user.id})
+    const payload = jwt.verify(token, process.env.SECRET);
+
     req.user = payload.user;
-  } catch (error) {
-    console.error(403).json("Unauthorized User");
+    next();
+  } catch (err) {
+    res.status(401).json({ message: "Token is not valid" });
   }
 };
