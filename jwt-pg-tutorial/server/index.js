@@ -11,6 +11,8 @@ app.use(cors());
 
 // ROUTES
 const authRoutes = require("./routes/jwtAuth");
+const dashboard = require("./routes/dashboard");
 app.use("/auth", authRoutes);
+app.use("/", dashboard);
 
 app.listen(PORT, () => console.log(`Server is listening on ${PORT}`));
