@@ -39,9 +39,9 @@ function Login({ setAuth }) {
           className="form-control my-3"
           type="email"
           name="email"
+          placeholder="email"
           value={email}
           onChange={(e) => onChange(e)}
-          placeholder="email"
         />
         <input
           className="form-control my-3"
