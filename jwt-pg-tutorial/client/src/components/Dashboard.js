@@ -29,7 +29,7 @@ function Dashboard({ setAuth }) {
 
   useEffect(() => {
     getProfile();
-  });
+  }, []);
 
   return (
     <div>
