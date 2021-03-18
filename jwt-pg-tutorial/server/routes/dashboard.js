@@ -2,7 +2,7 @@ const router = require("express").Router();
 const pool = require("../database/db");
 const auth = require("../middleware/auth");
 
-router.get("/", auth, async (req, res) => {
+router.get("/dashboard", auth, async (req, res) => {
   try {
     // req.user has the payload
     const user = await pool.query(
