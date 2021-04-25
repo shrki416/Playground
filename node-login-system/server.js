@@ -9,8 +9,12 @@ app.get("/", (req, res) => {
   res.render("index.ejs");
 });
 
-app.get("/login", req, (res) => {
-  res.rend("login.ejs");
+app.get("/login", (req, res) => {
+  res.render("login.ejs");
 });
 
-app.listen(PORT, () => `live on ${PORT} ⚜️`);
+app.get("/register", (req, res) => {
+  res.render("register.ejs");
+});
+
+app.listen(PORT, () => console.log(`live on ${PORT} 🥝`));
